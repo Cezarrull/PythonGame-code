@@ -37,6 +37,7 @@ terceiro_digito = '_'
 quarto_digito = '_'
 
 tentativas = 0
+dicas = 1
 
 for i in range(1, 10):
     chute = int(input(f'\nDigite seu chute: '))
@@ -81,42 +82,68 @@ for i in range(1, 10):
         tentativas += 1
         print(f'faltam {10-tentativas} tentativas')
 
-        if tentativas >= 5:
+        if tentativas >= 2:
             print(f'\n\nVou te dar uma díca!!')
-            if primeiro_digito == 'PAR':
+            
+            if a == x:
+                dicas = 1
+            elif primeiro_digito == 'PAR' or primeiro_digito == 'ÍMPAR':
                 if a > x:
                     primeiro_digito = f'<{a}'
-                else:
+                else: 
                     primeiro_digito = f'>{a}'
+            if b == y:
+                dicas = 1
+            elif segundo_digito == 'PAR' or segundo_digito == 'ÍMPAR':
+                if b > y:
+                    segundo_digito = f'<{b}'
+                else:
+                    segundo_digito = f'>{b}'
+            if c == z:
+                dicas = 1
+            elif terceiro_digito == 'PAR' or terceiro_digito == 'ÍMPAR':
+                if c > z:
+                    terceiro_digito = f'<{c}'
+                else:
+                    terceiro_digito = f'>{c}'
+            if d == w:
+                dicas = 1
+            elif quarto_digito == 'PAR' or quarto_digito == 'ÍMPAR':
+                if d > w:
+                    quarto_digito = f'<{d}'
+                else:
+                    quarto_digito = f'>{d}'
 
-            if a != x:
-                if x % 2 == 0:
-                    print(f'==> O primeiro digito é par!')
-                    primeiro_digito = 'PAR'
-                else:
-                    print(f'==> O primeiro digito é ímpar!')
-                    primeiro_digito = 'ÍMPAR'
-            elif b!= y:
-                if y % 2 == 0:
-                    print(f'==> O segundo digito é par!')
-                    segundo_digito = 'PAR'
-                else:
-                    print(f'==> O segundo digito é ímpar!')
-                    segundo_digito = 'ÍMPAR'
-            elif c != z:
-                if z % 2 == 0:
-                    print(f'==> O terceiro digito é par!')
-                    terceiro_digito = 'PAR'
-                else:
-                    print(f'==> O terceiro digito é ímpar!')
-                    terceiro_digito = 'ÍMPAR'
-            elif d != w:
-                if w % 2 == 0:
-                    print(f'==> O quarto digito é par!')
-                    quarto_digito = 'PAR'
-                else:
-                    print(f'==> O quarto digito é ímpar!')
-                    quarto_digito = 'ÍMPAR'
+            if dicas == 1:
+                if a != x:
+                    if x % 2 == 0:
+                        print(f'==> O primeiro digito é par!')
+                        primeiro_digito = 'PAR'
+                    else:
+                        print(f'==> O primeiro digito é ímpar!')
+                        primeiro_digito = 'ÍMPAR'
+                elif b!= y:
+                    if y % 2 == 0:
+                        print(f'==> O segundo digito é par!')
+                        segundo_digito = 'PAR'
+                    else:
+                        print(f'==> O segundo digito é ímpar!')
+                        segundo_digito = 'ÍMPAR'
+                elif c != z:
+                    if z % 2 == 0:
+                        print(f'==> O terceiro digito é par!')
+                        terceiro_digito = 'PAR'
+                    else:
+                        print(f'==> O terceiro digito é ímpar!')
+                        terceiro_digito = 'ÍMPAR'
+                elif d != w:
+                    if w % 2 == 0:
+                        print(f'==> O quarto digito é par!')
+                        quarto_digito = 'PAR'
+                    else:
+                        print(f'==> O quarto digito é ímpar!')
+                        quarto_digito = 'ÍMPAR'
+            dicas -= 1
 
         if tentativas > 10:
             print('Número de tentativas foi exedido!!!')
